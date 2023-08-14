@@ -6,7 +6,7 @@
 
     <groupId>dev.foxikle</groupId>
     <artifactId>Looper</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>Looper</name>
@@ -39,7 +39,6 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <outputFile>C:/Users/tscal/Desktop/testserver/plugins/Looper.jar</outputFile>
                         </configuration>
                     </execution>
                 </executions>
