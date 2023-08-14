@@ -1,5 +1,5 @@
 # Looper
-A simple plugin to loop commands
+A simple plugin to loop commands.
 That's pretty much it.
 
 The syntax for the command is:
