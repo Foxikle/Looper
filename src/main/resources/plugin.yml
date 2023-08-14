@@ -1,0 +1,13 @@
+name: Looper
+version: '${project.version}'
+main: dev.foxikle.looper.Looper
+api-version: '1.20'
+commands:
+  loop:
+    description: Loops the command specified
+    permission: looper.use
+prefix: Looper
+permissions:
+  looper.use:
+    default: op
+    description: Enables the ability to use the /loop command
