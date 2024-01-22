@@ -6,8 +6,13 @@ commands:
   loop:
     description: Loops the command specified
     permission: looper.use
+  cancelloop:
+    description: Cancels the player's active loops
 prefix: Looper
 permissions:
   looper.use:
     default: op
     description: Enables the ability to use the /loop command
+  looper.cancel:
+    default: op
+    description: Enables users to cancels other player's loops

@@ -1,13 +1,11 @@
 package dev.foxikle.looper;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
-import org.checkerframework.checker.units.qual.C;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +19,6 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
         if(sender instanceof Player player) {
             if(args.length >= 3) {
                 int iterations = Integer.parseInt(args[0]);
@@ -30,7 +27,15 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
                 commandList.remove(0);
                 commandList.remove(0);
                 String cmd = String.join(" ", commandList);
-                new LoopRunnable(iterations, player, cmd).runTaskTimer(plugin, 0, interval);
+                LoopRunnable runnable = new LoopRunnable(iterations, player, cmd);
+                runnable.runTaskTimer(plugin, 0, interval);
+
+                if(plugin.getLoops().containsKey(player.getUniqueId()) && plugin.getLoops().get(player.getUniqueId()) != null) {
+                    plugin.getLoops().get(player.getUniqueId()).add(runnable);
+                } else {
+                    plugin.getLoops().put(player.getUniqueId(), new ArrayList<>(List.of(runnable)));
+                }
+
                 return true;
             } else {
                 player.sendMessage(ChatColor.RED + "Invalid Usage! '/loop <times> <interval> <command with arguments>'");
