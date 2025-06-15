@@ -24,8 +24,8 @@ public class CancelAllLoops implements TabExecutor {
             return true;
         }
 
-        plugin.getLoops().forEach((uuid, loopRunnables) -> {
-            new ArrayList<>(loopRunnables).forEach(BukkitRunnable::cancel);
+        plugin.getLoops().forEach((uuid, loopRunnable) -> {
+            new ArrayList<>(loopRunnable).forEach(BukkitRunnable::cancel);
         });
         plugin.getLoops().clear();
         sender.sendMessage(ChatColor.GREEN + "All loops were successfully canceled.");
@@ -35,6 +35,6 @@ public class CancelAllLoops implements TabExecutor {
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
-        return new ArrayList<>(); // null to recommand online players
+        return new ArrayList<>(); // null to recommend online players
     }
 }
