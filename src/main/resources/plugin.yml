@@ -16,3 +16,6 @@ permissions:
   looper.cancel:
     default: op
     description: Enables users to cancels other player's loops
+  looper.cancel.all:
+    default: op
+    description: Enables users to cancel all loops on this server, via /cancelallloops
