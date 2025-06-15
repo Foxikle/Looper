@@ -8,6 +8,10 @@ commands:
     permission: looper.use
   cancelloop:
     description: Cancels the player's active loops
+    permission: looper.cancel
+  cancelallloops:
+    description: Cancels all the loops running at this moment
+    permission: looper.cancel.all
 prefix: Looper
 permissions:
   looper.use:

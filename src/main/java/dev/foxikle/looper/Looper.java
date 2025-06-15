@@ -18,8 +18,8 @@ public final class Looper extends JavaPlugin {
         getCommand("loop").setTabCompleter(new CommandHandler(this));
         getCommand("cancelloop").setExecutor(new CancelLoopCommand(this));
         getCommand("cancelloop").setTabCompleter(new CancelLoopCommand(this));
-        getCommand("cancelallloops").setExecutor(new CancelLoopCommand(this));
-        getCommand("cancelallloops").setTabCompleter(new CancelLoopCommand(this));
+        getCommand("cancelallloops").setExecutor(new CancelAllLoops(this));
+        getCommand("cancelallloops").setTabCompleter(new CancelAllLoops(this));
     }
 
     @Override
